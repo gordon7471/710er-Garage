@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,16 +61,22 @@
         }
 
         .box {
-            background-color: #222; /* Dunklere Hintergrundfarbe für die Box */
+            background-color: rgba(34, 34, 34, 0.8); /* Dunklere Hintergrundfarbe für die Box */
             border: 2px solid #aaa; /* Graue Kontur der Box */
             border-radius: 10px;
             width: 250px;
             height: 100px; /* Ursprüngliche Höhe */
             margin: 0 15px;
             padding: 10px;
-            transition: height 0.3s ease, background 0.3s ease; /* Höhe und Hintergrundfarbe */
             position: relative; /* Damit der Hintergrund und Hover-Effekte richtig funktionieren */
             overflow: hidden; /* Überlauf verstecken */
+            transition: height 0.3s ease; /* Höhe */
+        }
+
+        .box:hover,
+        .box.expanded {
+            background: linear-gradient(to bottom, darkgoldenrod, darkgreen); /* Farbverlauf für Hover und ausgeklappt */
+            color: white; /* Textfarbe im Vordergrund */
         }
 
         .box img {
@@ -79,19 +86,15 @@
             width: 100%;
             height: 100%; /* Bild passt sich der Höhe der Box an */
             object-fit: cover; /* Bild an die Box anpassen */
-            opacity: 1; /* Immer sichtbar */
-            transition: opacity 0.3s ease; /* Sanfter Übergang für die Opazität */
+            opacity: 0.5; /* Bild Teilweise sichtbar zur Unterscheidung */
             z-index: 0; /* Bild hinter dem Text */
         }
 
-        .box h2, .box p {
+        .box h2,
+        .box p {
             position: relative; /* Positionieren, damit der Text vor dem Bild bleibt */
             z-index: 1; /* Text über dem Bild */
             transition: color 0.3s ease; /* Sanfter Übergang für die Textfarbe */
-        }
-
-        .box:hover {
-            background: linear-gradient(to bottom, darkgoldenrod, darkgreen); /* Farbverlauf beim Hover */
         }
 
         .box .additional-info {
@@ -115,6 +118,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="overlay"></div> <!-- Abdunkelnde Overlay -->
     <div class="banner">
@@ -159,11 +163,14 @@
             if (isVisible) {
                 additionalInfo.style.display = 'none'; // Verstecke die zusätzlichen Informationen
                 box.style.height = '100px'; // Setze die Höhe zurück
+                box.classList.remove('expanded'); // Entferne die Klasse expanded
             } else {
                 additionalInfo.style.display = 'block'; // Zeige die zusätzlichen Informationen an
                 box.style.height = '200px'; // Erhöhe die Höhe der Box beim Ausklappen
+                box.classList.add('expanded'); // Füge die Klasse expanded hinzu
             }
         }
     </script>
 </body>
+
 </html>
