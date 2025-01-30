@@ -76,7 +76,7 @@
         .box:hover,
         .box.expanded {
             background: linear-gradient(to bottom, #f5c97d, #034003); /* Farbverlauf für Hover und ausgeklappt */
-            color: grey; /* Textfarbe im Vordergrund */
+            color: white; /* Textfarbe im Vordergrund */
         }
 
         .box img {
@@ -90,8 +90,17 @@
             z-index: 0; /* Bild hinter dem Text */
         }
 
-        .box h2,
+        .box h2 {
+            font-size: 1.5em; /* Größe der Überschrift */
+            margin: 0; /* Abstand entfernen */
+            position: relative; /* Positionieren, damit der Text vor dem Bild bleibt */
+            z-index: 1; /* Text über dem Bild */
+            transition: color 0.3s ease; /* Sanfter Übergang für die Textfarbe */
+        }
+
         .box p {
+            font-size: 1.3em; /* Größe des zusätzlichen Textes */
+            margin: 0; /* Abstand entfernen */
             position: relative; /* Positionieren, damit der Text vor dem Bild bleibt */
             z-index: 1; /* Text über dem Bild */
             transition: color 0.3s ease; /* Sanfter Übergang für die Textfarbe */
@@ -99,7 +108,7 @@
 
         .box .additional-info {
             display: none; /* Standardmäßig unsichtbar */
-            color: White;
+            color: white;
             margin-top: 10px;
             z-index: 1; /* Stelle sicher, dass die Informationen über dem Bild sind */
         }
