@@ -43,6 +43,7 @@
             top: 10px; /* Abstand vom oberen Rand */
             left: 20px; /* Abstand vom linken Rand */
             z-index: 2; /* Logo über der Overlay */
+            width: 150px; /* Breite des Logos */
         }
 
         .logo img {
@@ -53,9 +54,9 @@
         /* Styling für die Boxen */
         .container {
             display: flex;
-            justify-content: center; /* Zentriert die Boxen */
-            align-items: center; /* Vertikal zentriert die Boxen */
-            height: calc(100vh - 150px); /* Höhe abzüglich Banner und Logo */
+            flex-direction: column; /* Ändere das Layout zu einer Spalte */
+            align-items: center; /* Zentriert die Boxen */
+            height: calc(100vh - 150px); /* Höhe abzüglich Banner */
             position: relative; /* Damit der Hintergrund der Boxen bleibt */
             z-index: 2; /* Hintergrund über der Overlay */
         }
@@ -66,7 +67,7 @@
             border-radius: 10px;
             width: 250px;
             height: 100px; /* Ursprüngliche Höhe */
-            margin: 0 15px;
+            margin: 15px 0; /* Margin zwischen den Boxen */
             padding: 10px;
             position: relative; /* Damit der Hintergrund und Hover-Effekte richtig funktionieren */
             overflow: hidden; /* Überlauf verstecken */
@@ -99,7 +100,7 @@
         }
 
         .box p {
-            font-size: 1.3em; /* Größe des zusätzlichen Textes */
+            font-size: 1em; /* Größe des zusätzlichen Textes */
             margin: 0; /* Abstand entfernen */
             position: relative; /* Positionieren, damit der Text vor dem Bild bleibt */
             z-index: 1; /* Text über dem Bild */
@@ -125,6 +126,13 @@
             right: 20px; /* Platz vom rechten Rand */
             z-index: 2; /* Sicherstellen, dass der Footer über der Overlay ist */
         }
+
+        /* Styling für das große Logo */
+        .large-logo {
+            width: 300px; /* Breite des großen Logos */
+            margin-bottom: 20px; /* Abstand nach unten */
+            z-index: 2; /* Logo über anderen Inhalten */
+        }
     </style>
 </head>
 
@@ -134,9 +142,8 @@
         <h1>Willkommen bei der Garage 710er</h1>
     </div>
 
-    <!-- Logo oben links -->
-    <div class="logo">
-        <a href="https://dein-link-zur-seite.com"><img src="https://github.com/gordon7471/710er-Garage/blob/main/710logo2.png?raw=true" alt="Logo"></a> <!-- Logo-Image -->
+    <div class="logo large-logo">
+        <a href="https://dein-link-zur-seite.com"><img src="https://github.com/gordon7471/710er-Garage/blob/main/710logo2.png?raw=true" alt="Logo"></a> <!-- Großes Logo-Image -->
     </div>
 
     <div class="container">
