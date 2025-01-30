@@ -39,16 +39,14 @@
         }
 
         .logo {
-            position: absolute; /* Logo absolut positionieren */
-            top: 10px; /* Abstand vom oberen Rand */
-            left: 20px; /* Abstand vom linken Rand */
+            text-align: center; /* Logo zentrieren */
+            position: relative; /* Position relativ für das große Logo */
             z-index: 2; /* Logo über der Overlay */
-            width: 150px; /* Breite des Logos */
+            margin-top: 20px; /* Abstand vom oberen Rand mit Banner */
         }
 
         .logo img {
-            height: 100px; /* Höhe des Logos vergrößert */
-            width: auto; /* Breite automatisch einstellen, um das Seitenverhältnis beizubehalten */
+            width: 300px; /* Breite des großen Logos */
         }
 
         /* Styling für die Boxen */
@@ -56,7 +54,7 @@
             display: flex;
             flex-direction: column; /* Ändere das Layout zu einer Spalte */
             align-items: center; /* Zentriert die Boxen */
-            height: calc(100vh - 150px); /* Höhe abzüglich Banner */
+            height: calc(100vh - 150px); /* Höhe abzüglich Banner und Logo */
             position: relative; /* Damit der Hintergrund der Boxen bleibt */
             z-index: 2; /* Hintergrund über der Overlay */
         }
@@ -126,13 +124,6 @@
             right: 20px; /* Platz vom rechten Rand */
             z-index: 2; /* Sicherstellen, dass der Footer über der Overlay ist */
         }
-
-        /* Styling für das große Logo */
-        .large-logo {
-            width: 300px; /* Breite des großen Logos */
-            margin-bottom: 20px; /* Abstand nach unten */
-            z-index: 2; /* Logo über anderen Inhalten */
-        }
     </style>
 </head>
 
@@ -142,8 +133,8 @@
         <h1>Willkommen bei der Garage 710er</h1>
     </div>
 
-    <div class="logo large-logo">
-        <a href="https://dein-link-zur-seite.com"><img src="https://github.com/gordon7471/710er-Garage/blob/main/710logo2.png?raw=true" alt="Logo"></a> <!-- Großes Logo-Image -->
+    <div class="logo">
+        <img src="https://github.com/gordon7471/710er-Garage/blob/main/710logo2.png?raw=true" alt="Logo"> <!-- Großes Logo-Image -->
     </div>
 
     <div class="container">
