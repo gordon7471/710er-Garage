@@ -38,23 +38,24 @@
             z-index: 2; /* Banner über der Overlay */
         }
 
+        /* Styling für das Logo */
         .logo {
-            text-align: center; /* Logo zentrieren */
-            position: relative; /* Position relativ für das große Logo */
+            position: absolute; /* Logo absolut positionieren */
+            top: 10px; /* Abstand vom oberen Rand */
+            left: 20px; /* Abstand vom linken Rand */
             z-index: 2; /* Logo über der Overlay */
-            margin-top: 20px; /* Abstand vom oberen Rand mit Banner */
         }
 
         .logo img {
-            width: 300px; /* Breite des großen Logos */
+            width: 150px; /* Breite des Logos */
         }
 
         /* Styling für die Boxen */
         .container {
             display: flex;
-            flex-direction: column; /* Ändere das Layout zu einer Spalte */
-            align-items: center; /* Zentriert die Boxen */
-            height: calc(100vh - 150px); /* Höhe abzüglich Banner und Logo */
+            justify-content: center; /* Zentriert die Boxen horizontal */
+            align-items: center; /* Zentriert die Boxen vertikal */
+            height: calc(100vh - 150px); /* Höhe abzüglich Banner */
             position: relative; /* Damit der Hintergrund der Boxen bleibt */
             z-index: 2; /* Hintergrund über der Overlay */
         }
@@ -65,7 +66,7 @@
             border-radius: 10px;
             width: 250px;
             height: 100px; /* Ursprüngliche Höhe */
-            margin: 15px 0; /* Margin zwischen den Boxen */
+            margin: 15px; /* Margin zwischen den Boxen */
             padding: 10px;
             position: relative; /* Damit der Hintergrund und Hover-Effekte richtig funktionieren */
             overflow: hidden; /* Überlauf verstecken */
@@ -134,7 +135,8 @@
     </div>
 
     <div class="logo">
-        <img src="https://github.com/gordon7471/710er-Garage/blob/main/710logo2.png?raw=true" alt="Logo"> <!-- Großes Logo-Image -->
+        <img src="https://github.com/gordon7471/710er-Garage/blob/main/710logo2.png?raw=true" alt="Logo"> <!-- Erstes Logo -->
+        <img src="https://github.com/gordon7471/710er-Garage/blob/main/710logo2.png?raw=true" alt="Logo"> <!-- Zweites Logo -->
     </div>
 
     <div class="container">
