@@ -61,10 +61,10 @@
             background-color: #333;
             border: 2px solid #aaa;
             border-radius: 10px;
-            width: 100px; /* Kleinere Breite */
-            height: 100px; /* Kleinere Höhe */
+            width: 200px; /* Breite */
+            height: 200px; /* Höhe */
             margin: 0 15px;
-            transition: transform 0.3s ease; /* Sanfter Übergang beim Aufklappen */
+            transition: transform 0.3s ease; /* Sanfter Übergang beim Hover */
             position: relative;
             overflow: hidden;
             cursor: pointer; /* Zeigt an, dass die Box klickbar ist */
@@ -81,7 +81,7 @@
             position: relative;
             z-index: 1; /* Text über dem Bild */
             transition: color 0.3s ease;
-            font-size: 16px; /* Schriftgröße für kleinere Box */
+            font-size: 20px; /* Schriftgröße für größere Box */
             opacity: 0; /* Standardmäßig unsichtbar */
             transition: opacity 0.3s ease; /* Sanfter Übergang für die Opazität */
         }
@@ -96,9 +96,13 @@
             transition: opacity 0.3s ease; /* Sanfter Übergang für die Opazität */
         }
 
+        /* Hover-Simulation */
+        .box:hover {
+            transform: translateY(-10px); /* Heben beim Hover */
+        }
+
         .box.expanded {
-            height: 200px; /* Höhe beim Aufklappen */
-            width: 200px; /* Breite beim Aufklappen */
+            height: 300px; /* Höhe beim Aufklappen */
         }
 
         .box.expanded img {
