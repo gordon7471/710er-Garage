@@ -12,9 +12,11 @@
             background-size: cover;
             color: white;
             position: relative;
+            height: 100vh; /* Höhe auf volle Bildschirmhöhe setzen */
+            overflow: hidden; /* Verhindert Scrollen außerhalb des Viewports */
         }
 
-        /* Abdunkelnder Effekt über den Hintergrund */
+        /* Abdunkelnder Effekt über den gesamten Hintergrund */
         .overlay {
             position: absolute;
             top: 0;
@@ -22,6 +24,7 @@
             width: 100%;
             height: 100%;
             background-color: rgba(0, 0, 0, 0.6); /* Dunkler Überlagerungseffekt */
+            z-index: 1; /* Overlay unter Banner */
         }
 
         .banner {
@@ -43,6 +46,8 @@
         footer {
             text-align: center;
             padding: 10px;
+            position: relative; /* Position relativ machen für Z-Index */
+            z-index: 2; /* Sicherstellen, dass der Footer über der Overlay ist */
         }
     </style>
 </head>
@@ -52,8 +57,7 @@
         <h1>Willkommen bei der Garage 710</h1>
     </div>
     <section>
-        <h2>Über unsere Garage</h2>
-        <p>Hier in der Garage 710 bieten wir verschiedene Dienstleistungen an.</p>
+        <!-- Text entfernt -->
     </section>
     <footer>
         <p>© 2023 Garage 710</p>
