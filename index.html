@@ -32,7 +32,7 @@
             color: white;
             padding: 20px;
             text-align: center;
-            position: relative; /* Damit die Banner über der Overlay ist */
+            position: relative; /* Damit der Banner über der Overlay ist */
             z-index: 2; /* Banner über der Overlay */
         }
 
@@ -46,8 +46,22 @@
         footer {
             text-align: center;
             padding: 10px;
-            position: relative; /* Position relativ machen für Z-Index */
+            position: absolute; /* Position absolut für Fußzeile */
+            bottom: 20px; /* Platz vom unteren Rand */
+            right: 20px; /* Platz vom rechten Rand */
             z-index: 2; /* Sicherstellen, dass der Footer über der Overlay ist */
+        }
+
+        .logo {
+            position: absolute; /* Logo absolut positionieren */
+            top: 20px; /* Abstand vom oberen Rand */
+            left: 20px; /* Abstand vom linken Rand */
+            z-index: 2; /* Logo über der Overlay */
+        }
+
+        .logo img {
+            height: 50px; /* Höhe des Logos */
+            width: auto; /* Breite automatisch einstellen um das Seitenverhältnis beizubehalten */
         }
     </style>
 </head>
@@ -56,9 +70,16 @@
     <div class="banner">
         <h1>Willkommen bei der Garage 710</h1>
     </div>
+    
+    <!-- Logo oben links -->
+    <div class="logo">
+        <a href="https://dein-link-zur-seite.com"><img src="dein-logo.png" alt="Logo"></a> <!-- Ersetze den Link und den Bildpfad -->
+    </div>
+
     <section>
         <!-- Text entfernt -->
     </section>
+    
     <footer>
         <p>© 2023 Garage 710</p>
     </footer>
