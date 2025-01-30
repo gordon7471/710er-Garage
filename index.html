@@ -60,7 +60,7 @@
 
         .box {
             background-color: #333; /* Dunkelgraue Hauptfarbe */
-            border: 2px solid white;
+            border: 2px solid #aaa; /* Graue Kontur der Box */
             border-radius: 10px;
             width: 250px;
             margin: 0 15px;
@@ -84,20 +84,21 @@
             object-fit: cover; /* Bild an die Box anpassen */
             opacity: 0; /* Standardmäßig unsichtbar */
             transition: opacity 0.3s ease; /* Sanfter Übergang für die Opazität */
+            z-index: 0; /* Bild hinter dem Text */
         }
 
         .box:hover img {
             opacity: 1; /* Bild wird sichtbar bei Hover */
         }
 
-        .box h2 {
-            margin: 0;
-            padding: 10px 0;
-            text-align: center; /* Zentriert die Überschrift */
+        .box h2, .box p {
+            position: relative; /* Positionieren, damit der Text vor dem Bild bleibt */
+            z-index: 1; /* Text über dem Bild */
+            transition: color 0.3s ease; /* Sanfter Übergang für die Textfarbe */
         }
 
-        .box p {
-            text-align: center; /* Zentriert den Text */
+        .box:hover h2, .box:hover p {
+            color: white; /* Textfarbe bleibt weiß bei Hover */
         }
 
         footer {
@@ -130,12 +131,12 @@
         <div class="box">
             <h2>Titel 2</h2>
             <p>Dies ist eine Beschreibung für Box 2.</p>
-            <img src="dein-bild-url-2.jpg" alt="Bild 2" /> <!-- Ersetze durch dein Bild -->
+            <img src="https://www.liblogo.com/img-logo/si8232d034-simson-logo-download-simson-logo-png-image-with-no-background--com.png" alt="Bild 2" /> <!-- Ersetze durch dein Bild -->
         </div>
         <div class="box">
             <h2>Titel 3</h2>
             <p>Dies ist eine Beschreibung für Box 3.</p>
-            <img src="dein-bild-url-3.jpg" alt="Bild 3" /> <!-- Ersetze durch dein Bild -->
+            <img src="https://e7.pngegg.com/pngimages/672/649/png-clipart-aixam-car-toyota-ssangyong-motor-logo-car-trademark-logo.png" alt="Bild 3" /> <!-- Ersetze durch dein Bild -->
         </div>
     </div>
 
