@@ -61,26 +61,53 @@
             background-color: #333;
             border: 2px solid #aaa;
             border-radius: 10px;
-            width: 250px;
+            width: 100px; /* Kleinere Breite */
+            height: 100px; /* Kleinere Höhe */
             margin: 0 15px;
-            padding: 10px;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: transform 0.3s ease; /* Sanfter Übergang beim Aufklappen */
             position: relative;
             overflow: hidden;
             cursor: pointer; /* Zeigt an, dass die Box klickbar ist */
+        }
+
+        .box img {
+            width: 100%;  /* Bild passt sich der Box Breite an */
+            height: auto; /* Höhe passt sich automatisch an */
+            display: none; /* Standardmäßig unsichtbar */
+            transition: opacity 0.3s ease; /* Sanfter Übergang für die Opazität */
         }
 
         .box h2, .box p {
             position: relative;
             z-index: 1; /* Text über dem Bild */
             transition: color 0.3s ease;
+            font-size: 16px; /* Schriftgröße für kleinere Box */
+            opacity: 0; /* Standardmäßig unsichtbar */
+            transition: opacity 0.3s ease; /* Sanfter Übergang für die Opazität */
         }
 
-        /* Inhalt, der beim Aufklappen erscheint, standardmäßig versteckt */
+        /* Inhalt, der beim Aufklappen erscheint */
         .additional-info {
             display: none; /* Standardmäßig unsichtbar */
             color: #fff; /* Farbe des Zusatztextes */
             margin-top: 10px;
+            font-size: 14px; /* Schriftgröße für zusätzliche Informationen */
+            opacity: 0; /* Standardmäßig unsichtbar */
+            transition: opacity 0.3s ease; /* Sanfter Übergang für die Opazität */
+        }
+
+        .box.expanded {
+            height: 200px; /* Höhe beim Aufklappen */
+            width: 200px; /* Breite beim Aufklappen */
+        }
+
+        .box.expanded img {
+            display: block; /* Zeige Bild beim Aufklappen */
+            opacity: 1; /* Sichtbar beim Aufklappen */
+        }
+
+        .box.expanded h2, .box.expanded p, .box.expanded .additional-info {
+            opacity: 1; /* Sichtbar beim Aufklappen */
         }
 
         footer {
@@ -106,21 +133,21 @@
     <div class="container">
         <div class="box" onclick="toggleInfo(this)">
             <h2>Unsere Autos</h2>
-            <p>Kurze Beschreibung.</p>
+            <p>Kurze Info.</p>
+            <img src="https://github.com/gordon7471/710er-Garage/blob/main/Design%20ohne%20Titel.png?raw=true" alt="Ligier Logo" />
             <div class="additional-info">Hier sind zusätzliche Informationen über Ligier. Interessante Details über die Marke, Modelle, etc.</div>
-            <img src="https://github.com/gordon7471/710er-Garage/blob/main/Design%20ohne%20Titel.png?raw=trueg" alt="Bild 1" />
         </div>
         <div class="box" onclick="toggleInfo(this)">
             <h2>Aixam</h2>
-            <p>Kurze Beschreibung.</p>
+            <p>Kurze Info.</p>
+            <img src="https://github.com/gordon7471/710er-Garage/blob/main/aixam.png?raw=true" alt="Aixam Logo" />
             <div class="additional-info">Hier sind zusätzliche Informationen über Aixam. Interessante Details über die Marke, Modelle, etc.</div>
-            <img src="https://github.com/gordon7471/710er-Garage/blob/main/aixam.png?raw=true" alt="Bild 2" />
         </div>
         <div class="box" onclick="toggleInfo(this)">
             <h2>Simson</h2>
-            <p>Kurze Beschreibung.</p>
+            <p>Kurze Info.</p>
+            <img src="https://github.com/gordon7471/710er-Garage/blob/main/simson.png?raw=true" alt="Simson Logo" />
             <div class="additional-info">Hier sind zusätzliche Informationen über Simson. Interessante Details über die Marke, Modelle, etc.</div>
-            <img src="https://github.com/gordon7471/710er-Garage/blob/main/simson.png?raw=true" alt="Bild 3" />
         </div>
     </div>
 
@@ -131,10 +158,22 @@
     <script>
         function toggleInfo(box) {
             const additionalInfo = box.querySelector('.additional-info');
-            if (additionalInfo.style.display === "none" || additionalInfo.style.display === "") {
+            const img = box.querySelector('img');
+            box.classList.toggle('expanded');  // Toggle für die erweiterte Klasse
+            if (box.classList.contains('expanded')) {
                 additionalInfo.style.display = "block"; // Zeige zusätzliche Informationen an
+                img.style.display = "block"; // Zeige Bild beim Aufklappen
+                setTimeout(() => {
+                    additionalInfo.style.opacity = 1; // Sichtbar machen mit Transition
+                    img.style.opacity = 1; // Sichtbar machen mit Transition
+                }, 10); // Ein klein wenig delay, damit die Transition funktioniert
             } else {
-                additionalInfo.style.display = "none"; // Verstecke zusätzliche Informationen
+                additionalInfo.style.opacity = 0; // Mache sie unsichtbar mit Transition
+                img.style.opacity = 0; // Mache Bild unsichtbar
+                setTimeout(() => {
+                    additionalInfo.style.display = "none"; // Verstecke nach der Transition
+                    img.style.display = "none"; // Verstecke nach der Transition
+                }, 300); // Warte bis die Animation vorbei ist
             }
         }
     </script>
