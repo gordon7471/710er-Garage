@@ -36,22 +36,6 @@
             z-index: 2; /* Banner über der Overlay */
         }
 
-        section {
-            margin: 20px;
-            padding: 20px;
-            z-index: 2; /* Sicherstellen, dass der Text über der Overlay ist */
-            position: relative; /* Position relativ machen für Z-Index */
-        }
-
-        footer {
-            text-align: center;
-            padding: 10px;
-            position: absolute; /* Position absolut für Fußzeile */
-            bottom: 20px; /* Platz vom unteren Rand */
-            right: 20px; /* Platz vom rechten Rand */
-            z-index: 2; /* Sicherstellen, dass der Footer über der Overlay ist */
-        }
-
         .logo {
             position: absolute; /* Logo absolut positionieren */
             top: 10px; /* Abstand vom oberen Rand */
@@ -62,6 +46,66 @@
         .logo img {
             height: 100px; /* Höhe des Logos vergrößert */
             width: auto; /* Breite automatisch einstellen um das Seitenverhältnis beizubehalten */
+        }
+
+        /* Styling für die Boxen */
+        .container {
+            display: flex;
+            justify-content: center; /* Zentriert die Boxen */
+            align-items: center; /* Vertikal zentriert die Boxen */
+            height: calc(100vh - 150px); /* Höhe abzüglich Banner und Logo */
+            position: relative; /* Damit der Hintergrund der Boxen bleibt */
+            z-index: 2; /* Hintergrund über der Overlay */
+        }
+
+        .box {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid white;
+            border-radius: 10px;
+            width: 250px;
+            margin: 0 15px;
+            padding: 10px;
+            transition: transform 0.3s ease;
+            position: relative; /* Damit der Hintergrund und Hover-Effekte richtig funktionieren */
+            overflow: hidden; /* Überlauf verstecken */
+        }
+
+        .box:hover {
+            transform: translateY(-10px); /* Hebt die Box bei Hover */
+        }
+
+        .box img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Bild an die Box anpassen */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .box:hover img {
+            opacity: 1; /* Bild wird sichtbar bei Hover */
+        }
+
+        .box h2 {
+            margin: 0;
+            padding: 10px 0;
+            text-align: center; /* Zentriert die Überschrift */
+        }
+
+        .box p {
+            text-align: center; /* Zentriert den Text */
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            position: absolute; /* Position absolut für Fußzeile */
+            bottom: 20px; /* Platz vom unteren Rand */
+            right: 20px; /* Platz vom rechten Rand */
+            z-index: 2; /* Sicherstellen, dass der Footer über der Overlay ist */
         }
     </style>
 </head>
@@ -76,9 +120,23 @@
         <a href="https://dein-link-zur-seite.com"><img src="https://github.com/gordon7471/710er-Garage/blob/main/710logo2.png?raw=true" alt="Logo"></a> <!-- Logo-Image -->
     </div>
 
-    <section>
-        <!-- Hier könnte weiterer Inhalt hinzugefügt werden -->
-    </section>
+    <div class="container">
+        <div class="box">
+            <h2>Titel 1</h2>
+            <p>Dies ist eine Beschreibung für Box 1.</p>
+            <img src="dein-bild-url-1.jpg" alt="Bild 1" /> <!-- Ersetze durch dein Bild -->
+        </div>
+        <div class="box">
+            <h2>Titel 2</h2>
+            <p>Dies ist eine Beschreibung für Box 2.</p>
+            <img src="dein-bild-url-2.jpg" alt="Bild 2" /> <!-- Ersetze durch dein Bild -->
+        </div>
+        <div class="box">
+            <h2>Titel 3</h2>
+            <p>Dies ist eine Beschreibung für Box 3.</p>
+            <img src="dein-bild-url-3.jpg" alt="Bild 3" /> <!-- Ersetze durch dein Bild -->
+        </div>
+    </div>
 
     <footer>
         <p>© 2023 Garage 710</p>
