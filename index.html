@@ -8,149 +8,140 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-image: url('https://github.com/gordon7471/710er-Garage/blob/main/710logo.jpg?raw=true');
+            background-image: url('https://github.com/gordon7471/710er-Garage/blob/main/710logo.jpg?raw=true'); /* Hintergrundbild */
             background-size: cover;
-            background-position: top center;
+            background-position: top center; /* Position des Hintergrunds nach oben gesetzt */
             color: white;
             position: relative;
-            height: 100vh;
-            overflow: hidden;
+            height: 100vh; /* volle Bildschirmhöhe */
+            overflow: hidden; /* Verhindert Scrollen außerhalb des Viewports */
         }
 
+        /* Abdunkelnder Effekt über den gesamten Hintergrund */
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.6); /* Dunkler Überlagerungseffekt */
+            z-index: 1; /* Overlay unter Banner */
         }
 
         .banner {
             background-color: black;
             color: white;
-            padding: 10px;
+            padding: 10px; /* Dünnerer Banner */
             text-align: center;
-            position: relative;
-            z-index: 2;
+            position: relative; /* Damit der Banner über der Overlay ist */
+            z-index: 2; /* Banner über der Overlay */
         }
 
         .logo {
-            position: absolute;
-            top: 10px;
-            left: 20px;
-            z-index: 2;
+            position: absolute; /* Logo absolut positionieren */
+            top: 10px; /* Abstand vom oberen Rand */
+            left: 20px; /* Abstand vom linken Rand */
+            z-index: 2; /* Logo über der Overlay */
         }
 
         .logo img {
-            height: 100px;
-            width: auto;
+            height: 100px; /* Höhe des Logos vergrößert */
+            width: auto; /* Breite automatisch einstellen um das Seitenverhältnis beizubehalten */
         }
 
+        /* Styling für die Boxen */
         .container {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            height: calc(100vh - 150px);
-            position: relative;
-            z-index: 2;
+            justify-content: center; /* Zentriert die Boxen */
+            align-items: center; /* Vertikal zentriert die Boxen */
+            height: calc(100vh - 150px); /* Höhe abzüglich Banner und Logo */
+            position: relative; /* Damit der Hintergrund der Boxen bleibt */
+            z-index: 2; /* Hintergrund über der Overlay */
         }
 
         .box {
-            background-color: #333;
-            border: 2px solid #aaa;
+            background-color: #333; /* Dunkelgraue Hauptfarbe */
+            border: 2px solid #aaa; /* Graue Kontur der Box */
             border-radius: 10px;
-            width: 200px; /* Breite */
-            height: 200px; /* Höhe */
+            width: 250px;
+            height: 100px; /* Ursprüngliche Höhe */
             margin: 0 15px;
-            transition: transform 0.3s ease; /* Sanfter Übergang beim Hover */
-            position: relative;
-            overflow: hidden;
-            cursor: pointer; /* Zeigt an, dass die Box klickbar ist */
+            padding: 10px;
+            transition: height 0.3s ease, background-color 0.3s ease; /* Höhe und Hintergrundfarbe */
+            position: relative; /* Damit der Hintergrund und Hover-Effekte richtig funktionieren */
+            overflow: hidden; /* Überlauf verstecken */
+        }
+
+        .box:hover {
+            background-color: #444; /* Dunkelgraue bei Hover */
         }
 
         .box img {
-            width: 100%;  /* Bild passt sich der Box Breite an */
-            height: auto; /* Höhe passt sich automatisch an */
-            display: none; /* Standardmäßig unsichtbar */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Bild an die Box anpassen */
+            opacity: 0; /* Standardmäßig unsichtbar */
             transition: opacity 0.3s ease; /* Sanfter Übergang für die Opazität */
+            z-index: 0; /* Bild hinter dem Text */
+        }
+
+        .box:hover img {
+            opacity: 1; /* Bild wird sichtbar bei Hover */
         }
 
         .box h2, .box p {
-            position: relative;
+            position: relative; /* Positionieren, damit der Text vor dem Bild bleibt */
             z-index: 1; /* Text über dem Bild */
-            transition: color 0.3s ease;
-            font-size: 20px; /* Schriftgröße für größere Box */
-            opacity: 0; /* Standardmäßig unsichtbar */
-            transition: opacity 0.3s ease; /* Sanfter Übergang für die Opazität */
+            transition: color 0.3s ease; /* Sanfter Übergang für die Textfarbe */
         }
 
-        /* Inhalt, der beim Aufklappen erscheint */
-        .additional-info {
+        .box .additional-info {
             display: none; /* Standardmäßig unsichtbar */
-            color: #fff; /* Farbe des Zusatztextes */
+            color: white;
             margin-top: 10px;
-            font-size: 14px; /* Schriftgröße für zusätzliche Informationen */
-            opacity: 0; /* Standardmäßig unsichtbar */
-            transition: opacity 0.3s ease; /* Sanfter Übergang für die Opazität */
-        }
-
-        /* Hover-Simulation */
-        .box:hover {
-            transform: translateY(-10px); /* Heben beim Hover */
-        }
-
-        .box.expanded {
-            height: 300px; /* Höhe beim Aufklappen */
-        }
-
-        .box.expanded img {
-            display: block; /* Zeige Bild beim Aufklappen */
-            opacity: 1; /* Sichtbar beim Aufklappen */
-        }
-
-        .box.expanded h2, .box.expanded p, .box.expanded .additional-info {
-            opacity: 1; /* Sichtbar beim Aufklappen */
         }
 
         footer {
             text-align: center;
             padding: 10px;
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            z-index: 2;
+            position: absolute; /* Position absolut für Fußzeile */
+            bottom: 20px; /* Platz vom unteren Rand */
+            right: 20px; /* Platz vom rechten Rand */
+            z-index: 2; /* Sicherstellen, dass der Footer über der Overlay ist */
         }
     </style>
 </head>
 <body>
-    <div class="overlay"></div>
+    <div class="overlay"></div> <!-- Abdunkelnde Overlay -->
     <div class="banner">
         <h1>Willkommen bei der Garage 710</h1>
     </div>
 
+    <!-- Logo oben links -->
     <div class="logo">
-        <a href="https://dein-link-zur-seite.com"><img src="https://github.com/gordon7471/710er-Garage/blob/main/710logo2.png?raw=true" alt="Logo"></a>
+        <a href="https://dein-link-zur-seite.com"><img src="https://github.com/gordon7471/710er-Garage/blob/main/710logo2.png?raw=true" alt="Logo"></a> <!-- Logo-Image -->
     </div>
 
     <div class="container">
         <div class="box" onclick="toggleInfo(this)">
             <h2>Ligier</h2>
-            <p>Kurze Info.</p>
-            <img src="https://github.com/gordon7471/710er-Garage/blob/main/Design%20ohne%20Titel.png?raw=true" alt="Ligier Logo" />
+            <p>Ligier.</p>
+            <img src="https://github.com/gordon7471/710er-Garage/blob/main/Design%20ohne%20Titel.png?raw=true" alt="Bild 1" /> <!-- Ersetze durch dein Bild -->
             <div class="additional-info">Hier sind zusätzliche Informationen über Ligier. Interessante Details über die Marke, Modelle, etc.</div>
         </div>
         <div class="box" onclick="toggleInfo(this)">
             <h2>Aixam</h2>
-            <p>Kurze Info.</p>
-            <img src="https://github.com/gordon7471/710er-Garage/blob/main/aixam.png?raw=true" alt="Aixam Logo" />
+            <p>Aixam.</p>
+            <img src="https://github.com/gordon7471/710er-Garage/blob/main/aixam.png?raw=true" alt="Bild 2" /> <!-- Ersetze durch dein Bild -->
             <div class="additional-info">Hier sind zusätzliche Informationen über Aixam. Interessante Details über die Marke, Modelle, etc.</div>
         </div>
         <div class="box" onclick="toggleInfo(this)">
             <h2>Simson</h2>
-            <p>Kurze Info.</p>
-            <img src="https://github.com/gordon7471/710er-Garage/blob/main/simson.png?raw=true" alt="Simson Logo" />
+            <p>Simson.</p>
+            <img src="https://github.com/gordon7471/710er-Garage/blob/main/simson.png?raw=true" alt="Bild 3" /> <!-- Ersetze durch dein Bild -->
             <div class="additional-info">Hier sind zusätzliche Informationen über Simson. Interessante Details über die Marke, Modelle, etc.</div>
         </div>
     </div>
@@ -162,22 +153,14 @@
     <script>
         function toggleInfo(box) {
             const additionalInfo = box.querySelector('.additional-info');
-            const img = box.querySelector('img');
-            box.classList.toggle('expanded');  // Toggle für die erweiterte Klasse
-            if (box.classList.contains('expanded')) {
-                additionalInfo.style.display = "block"; // Zeige zusätzliche Informationen an
-                img.style.display = "block"; // Zeige Bild beim Aufklappen
-                setTimeout(() => {
-                    additionalInfo.style.opacity = 1; // Sichtbar machen mit Transition
-                    img.style.opacity = 1; // Sichtbar machen mit Transition
-                }, 10); // Ein klein wenig delay, damit die Transition funktioniert
+            const isVisible = additionalInfo.style.display === 'block';
+
+            if (isVisible) {
+                additionalInfo.style.display = 'none'; // Verstecke die zusätzlichen Informationen
+                box.style.height = '100px'; // Setze die Höhe zurück
             } else {
-                additionalInfo.style.opacity = 0; // Mache sie unsichtbar mit Transition
-                img.style.opacity = 0; // Mache Bild unsichtbar
-                setTimeout(() => {
-                    additionalInfo.style.display = "none"; // Verstecke nach der Transition
-                    img.style.display = "none"; // Verstecke nach der Transition
-                }, 300); // Warte bis die Animation vorbei ist
+                additionalInfo.style.display = 'block'; // Zeige die zusätzlichen Informationen an
+                box.style.height = '200px'; // Erhöhe die Höhe der Box beim Ausklappen
             }
         }
     </script>
