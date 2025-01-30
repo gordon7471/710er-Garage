@@ -67,13 +67,9 @@
             height: 100px; /* Ursprüngliche Höhe */
             margin: 0 15px;
             padding: 10px;
-            transition: height 0.3s ease, background-color 0.3s ease; /* Höhe und Hintergrundfarbe */
+            transition: height 0.3s ease, background 0.3s ease; /* Höhe und Hintergrundfarbe */
             position: relative; /* Damit der Hintergrund und Hover-Effekte richtig funktionieren */
             overflow: hidden; /* Überlauf verstecken */
-        }
-
-        .box:hover {
-            background-color: #333; /* Dunkelgraue bei Hover */
         }
 
         .box img {
@@ -83,19 +79,19 @@
             width: 100%;
             height: 100%; /* Bild passt sich der Höhe der Box an */
             object-fit: cover; /* Bild an die Box anpassen */
-            opacity: 0; /* Standardmäßig unsichtbar */
+            opacity: 1; /* Immer sichtbar */
             transition: opacity 0.3s ease; /* Sanfter Übergang für die Opazität */
             z-index: 0; /* Bild hinter dem Text */
-        }
-
-        .box.expanded img {
-            opacity: 1; /* Bild wird sichtbar beim Ausklappen */
         }
 
         .box h2, .box p {
             position: relative; /* Positionieren, damit der Text vor dem Bild bleibt */
             z-index: 1; /* Text über dem Bild */
             transition: color 0.3s ease; /* Sanfter Übergang für die Textfarbe */
+        }
+
+        .box:hover {
+            background: linear-gradient(to bottom, darkgoldenrod, darkgreen); /* Farbverlauf beim Hover */
         }
 
         .box .additional-info {
@@ -134,7 +130,7 @@
         <div class="box" onclick="toggleInfo(this)">
             <h2>Ligier</h2>
             <p>Ligier.</p>
-            <img src="https://github.com/gordon7471/710er-Garage/blob/main/Design%20ohne%20Titel.png?raw=true" alt="Bild 1" /> <!-- Ersetze durch dein Bild -->
+            <img src="https://ligier-microcar.de/images/logos/LOGO_LIGIER.svg" alt="Bild 1" /> <!-- Ersetze durch dein Bild -->
             <div class="additional-info">Hier sind zusätzliche Informationen über Ligier. Interessante Details über die Marke, Modelle, etc.</div>
         </div>
         <div class="box" onclick="toggleInfo(this)">
@@ -158,7 +154,6 @@
     <script>
         function toggleInfo(box) {
             const additionalInfo = box.querySelector('.additional-info');
-            const img = box.querySelector('img');
             const isVisible = additionalInfo.style.display === 'block';
 
             if (isVisible) {
@@ -168,9 +163,6 @@
                 additionalInfo.style.display = 'block'; // Zeige die zusätzlichen Informationen an
                 box.style.height = '200px'; // Erhöhe die Höhe der Box beim Ausklappen
             }
-
-            // Bei Bedarf die Bild-Opazität einstellen
-            img.style.opacity = isVisible ? '0' : '1'; // Bild unsichtbar oder sichtbar machen
         }
     </script>
 </body>
