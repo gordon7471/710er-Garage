@@ -85,7 +85,7 @@
         .box:hover,
         .box.expanded {
             background: linear-gradient(to bottom, #f5c97d, #034003);
-            color: white;
+            color: #f2f2f2; /* Dunklerer Farbton für den Text beim Hover */
         }
 
         .box img {
@@ -99,15 +99,16 @@
             z-index: 0;
         }
 
-        .box h2, .box p {
+        .box h2,
+        .box p,
+        .box .additional-info {
             position: relative;
             z-index: 1;
-            font-weight: bold;
+            color: #f2f2f2; /* Dunklerer Farbton für besseren Kontrast */
         }
 
         .box .additional-info {
             display: none;
-            color: white;
             margin-top: 10px;
             z-index: 1;
             font-weight: bold;
