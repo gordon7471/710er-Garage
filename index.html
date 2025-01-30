@@ -11,31 +11,46 @@
             background-image: url('https://github.com/gordon7471/710er-Garage/blob/main/710.jpg?raw=true'); /* Füge den Pfad zu deinem Bild ein */
             background-size: cover;
             color: white;
+            position: relative;
         }
 
-        header {
-            text-align: center;
+        /* Abdunkelnder Effekt über den Hintergrund */
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6); /* Dunkler Überlagerungseffekt */
+        }
+
+        .banner {
+            background-color: black;
+            color: white;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.5); /* Halbl-transparentes Schwarz */
+            text-align: center;
+            position: relative; /* Damit die Banner über der Overlay ist */
+            z-index: 2; /* Banner über der Overlay */
         }
 
         section {
             margin: 20px;
             padding: 20px;
-            background-color: rgba(0, 0, 0, 0.7); /* Halbl-transparentes Schwarz */
+            z-index: 2; /* Sicherstellen, dass der Text über der Overlay ist */
+            position: relative; /* Position relativ machen für Z-Index */
         }
 
         footer {
             text-align: center;
             padding: 10px;
-            background-color: rgba(0, 0, 0, 0.5);
         }
     </style>
 </head>
 <body>
-    <header>
+    <div class="overlay"></div> <!-- Abdunkelnde Overlay -->
+    <div class="banner">
         <h1>Willkommen bei der Garage 710</h1>
-    </header>
+    </div>
     <section>
         <h2>Über unsere Garage</h2>
         <p>Hier in der Garage 710 bieten wir verschiedene Dienstleistungen an.</p>
