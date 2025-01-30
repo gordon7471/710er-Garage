@@ -8,141 +8,135 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-image: url('https://github.com/gordon7471/710er-Garage/blob/main/710logo.jpg?raw=true'); /* Hintergrundbild */
+            background-image: url('https://github.com/gordon7471/710er-Garage/blob/main/710logo.jpg?raw=true');
             background-size: cover;
-            background-position: top center; /* Position des Hintergrunds nach oben gesetzt */
+            background-position: top center;
             color: white;
             position: relative;
-            height: 100vh; /* volle Bildschirmhöhe */
-            overflow: hidden; /* Verhindert Scrollen außerhalb des Viewports */
+            height: 100vh;
+            overflow: hidden;
         }
 
-        /* Abdunkelnder Effekt über den gesamten Hintergrund */
         .overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.6); /* Dunkler Überlagerungseffekt */
-            z-index: 1; /* Overlay unter Banner */
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
         }
 
         .banner {
             background-color: black;
             color: white;
-            padding: 10px; /* Dünnerer Banner */
+            padding: 10px;
             text-align: center;
-            position: relative; /* Damit der Banner über der Overlay ist */
-            z-index: 2; /* Banner über der Overlay */
+            position: relative;
+            z-index: 2;
         }
 
         .logo {
-            position: absolute; /* Logo absolut positionieren */
-            top: 10px; /* Abstand vom oberen Rand */
-            left: 20px; /* Abstand vom linken Rand */
-            z-index: 2; /* Logo über der Overlay */
+            position: absolute;
+            top: 10px;
+            left: 20px;
+            z-index: 2;
         }
 
         .logo img {
-            height: 100px; /* Höhe des Logos vergrößert */
-            width: auto; /* Breite automatisch einstellen um das Seitenverhältnis beizubehalten */
+            height: 100px;
+            width: auto;
         }
 
-        /* Styling für die Boxen */
         .container {
             display: flex;
-            justify-content: center; /* Zentriert die Boxen */
-            align-items: center; /* Vertikal zentriert die Boxen */
-            height: calc(100vh - 150px); /* Höhe abzüglich Banner und Logo */
-            position: relative; /* Damit der Hintergrund der Boxen bleibt */
-            z-index: 2; /* Hintergrund über der Overlay */
+            justify-content: center;
+            align-items: center;
+            height: calc(100vh - 150px);
+            position: relative;
+            z-index: 2;
         }
 
         .box {
-            background-color: #333; /* Dunkelgraue Hauptfarbe */
-            border: 2px solid #aaa; /* Graue Kontur der Box */
+            background-color: #333;
+            border: 2px solid #aaa;
             border-radius: 10px;
             width: 250px;
             margin: 0 15px;
             padding: 10px;
-            transition: transform 0.3s ease, background-color 0.3s ease; /* Hintergrundfarbe und Verschiebung */
-            position: relative; /* Damit der Hintergrund und Hover-Effekte richtig funktionieren */
-            overflow: hidden; /* Überlauf verstecken */
-        }
-
-        .box:hover {
-            transform: translateY(-10px); /* Hebt die Box bei Hover */
-            background-color: #444; /* Dunkelgraue bei Hover */
-        }
-
-        .box img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* Bild an die Box anpassen */
-            opacity: 0; /* Standardmäßig unsichtbar */
-            transition: opacity 0.3s ease; /* Sanfter Übergang für die Opazität */
-            z-index: 0; /* Bild hinter dem Text */
-        }
-
-        .box:hover img {
-            opacity: 1; /* Bild wird sichtbar bei Hover */
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer; /* Zeigt an, dass die Box klickbar ist */
         }
 
         .box h2, .box p {
-            position: relative; /* Positionieren, damit der Text vor dem Bild bleibt */
+            position: relative;
             z-index: 1; /* Text über dem Bild */
-            transition: color 0.3s ease; /* Sanfter Übergang für die Textfarbe */
+            transition: color 0.3s ease;
         }
 
-        .box:hover h2, .box:hover p {
-            color: white; /* Textfarbe bleibt weiß bei Hover */
+        /* Inhalt, der beim Aufklappen erscheint, standardmäßig versteckt */
+        .additional-info {
+            display: none; /* Standardmäßig unsichtbar */
+            color: #fff; /* Farbe des Zusatztextes */
+            margin-top: 10px;
         }
 
         footer {
             text-align: center;
             padding: 10px;
-            position: absolute; /* Position absolut für Fußzeile */
-            bottom: 20px; /* Platz vom unteren Rand */
-            right: 20px; /* Platz vom rechten Rand */
-            z-index: 2; /* Sicherstellen, dass der Footer über der Overlay ist */
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 2;
         }
     </style>
 </head>
 <body>
-    <div class="overlay"></div> <!-- Abdunkelnde Overlay -->
+    <div class="overlay"></div>
     <div class="banner">
         <h1>Willkommen bei der Garage 710</h1>
     </div>
 
-    <!-- Logo oben links -->
     <div class="logo">
-        <a href="https://dein-link-zur-seite.com"><img src="https://github.com/gordon7471/710er-Garage/blob/main/710logo2.png?raw=true" alt="Logo"></a> <!-- Logo-Image -->
+        <a href="https://dein-link-zur-seite.com"><img src="https://github.com/gordon7471/710er-Garage/blob/main/710logo2.png?raw=true" alt="Logo"></a>
     </div>
 
     <div class="container">
-        <div class="box">
+        <div class="box" onclick="toggleInfo(this)">
             <h2>Ligier</h2>
-            <p>Ligier.</p>
-            <img src="https://ligier-microcar.de/images/logos/LOGO_LIGIER.svg" alt="Bild 1" /> <!-- Ersetze durch dein Bild -->
+            <p>Kurze Beschreibung.</p>
+            <div class="additional-info">Hier sind zusätzliche Informationen über Ligier. Interessante Details über die Marke, Modelle, etc.</div>
+            <img src="https://ligier-microcar.de/images/logos/LOGO_LIGIER.svg" alt="Bild 1" />
         </div>
-        <div class="box">
+        <div class="box" onclick="toggleInfo(this)">
             <h2>Aixam</h2>
-            <p>Aixam.</p>
-            <img src="https://github.com/gordon7471/710er-Garage/blob/main/aixam.png?raw=true" alt="Bild 2" /> <!-- Ersetze durch dein Bild -->
+            <p>Kurze Beschreibung.</p>
+            <div class="additional-info">Hier sind zusätzliche Informationen über Aixam. Interessante Details über die Marke, Modelle, etc.</div>
+            <img src="https://github.com/gordon7471/710er-Garage/blob/main/aixam.png?raw=true" alt="Bild 2" />
         </div>
-        <div class="box">
+        <div class="box" onclick="toggleInfo(this)">
             <h2>Simson</h2>
-            <p>Simson.</p>
-            <img src="https://github.com/gordon7471/710er-Garage/blob/main/simson.png?raw=true" alt="Bild 3" /> <!-- Ersetze durch dein Bild -->
+            <p>Kurze Beschreibung.</p>
+            <div class="additional-info">Hier sind zusätzliche Informationen über Simson. Interessante Details über die Marke, Modelle, etc.</div>
+            <img src="https://github.com/gordon7471/710er-Garage/blob/main/simson.png?raw=true" alt="Bild 3" />
         </div>
     </div>
 
     <footer>
         <p>© 2023 Garage 710</p>
     </footer>
+
+    <script>
+        function toggleInfo(box) {
+            const additionalInfo = box.querySelector('.additional-info');
+            if (additionalInfo.style.display === "none" || additionalInfo.style.display === "") {
+                additionalInfo.style.display = "block"; // Zeige zusätzliche Informationen an
+            } else {
+                additionalInfo.style.display = "none"; // Verstecke zusätzliche Informationen
+            }
+        }
+    </script>
 </body>
 </html>
