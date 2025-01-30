@@ -59,19 +59,20 @@
         }
 
         .box {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: #333; /* Dunkelgraue Hauptfarbe */
             border: 2px solid white;
             border-radius: 10px;
             width: 250px;
             margin: 0 15px;
             padding: 10px;
-            transition: transform 0.3s ease;
+            transition: transform 0.3s ease, background-color 0.3s ease; /* Hintergrundfarbe und Verschiebung */
             position: relative; /* Damit der Hintergrund und Hover-Effekte richtig funktionieren */
             overflow: hidden; /* Überlauf verstecken */
         }
 
         .box:hover {
             transform: translateY(-10px); /* Hebt die Box bei Hover */
+            background-color: #444; /* Dunkelgraue bei Hover */
         }
 
         .box img {
@@ -81,8 +82,8 @@
             width: 100%;
             height: 100%;
             object-fit: cover; /* Bild an die Box anpassen */
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            opacity: 0; /* Standardmäßig unsichtbar */
+            transition: opacity 0.3s ease; /* Sanfter Übergang für die Opazität */
         }
 
         .box:hover img {
@@ -124,7 +125,7 @@
         <div class="box">
             <h2>Titel 1</h2>
             <p>Dies ist eine Beschreibung für Box 1.</p>
-            <img src="dein-bild-url-1.jpg" alt="Bild 1" /> <!-- Ersetze durch dein Bild -->
+            <img src="https://ligier-microcar.de/images/logos/LOGO_LIGIER.svg" alt="Bild 1" /> <!-- Ersetze durch dein Bild -->
         </div>
         <div class="box">
             <h2>Titel 2</h2>
