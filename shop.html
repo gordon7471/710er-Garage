@@ -146,6 +146,10 @@
             margin: 10px 0 5px 0; /* Abstand nach oben */
         }
 
+        .review {
+            margin-bottom: 10px;
+        }
+
         footer {
             text-align: center;
             padding: 10px;
@@ -170,7 +174,6 @@
 
     <div class="container">
         <div class="product">
-            <img src="..." alt="Ecke Bild" class="corner-image" />
             <h3>Produkt 1</h3>
             <img src="https://github.com/gordon7471/710er-Garage/blob/main/presse2.png?raw=true" alt="Produkt 1 Bild" />
             <p>Preis: 29,99 €</p>
@@ -179,14 +182,15 @@
             </div>
             <button class="review-button" onclick="toggleReviews(this)">Bewertungen anzeigen</button>
             <div class="reviews">
-                <div class="review-title">Bewertungen:</div>
-                <p>Bewertung 1: ⭐⭐⭐⭐⭐</p>
-                <p>Bewertung 2: ⭐⭐⭐★★</p>
-                <p>Bewertung 3: ⭐⭐⭐⭐⭐</p>
+                <div class="review-title">Bewertung 1: ⭐⭐⭐⭐⭐</div>
+                <p>Überragendes Produkt! Ich bin sehr zufrieden.</p>
+                <div class="review-title">Bewertung 2: ⭐⭐⭐★★</div>
+                <p>Das Produkt ist gut, aber es könnte verbessert werden.</p>
+                <div class="review-title">Bewertung 3: ⭐⭐⭐⭐⭐</div>
+                <p>Ich liebe es! Empfehle jeden, der es nutzt.</p>
             </div>
         </div>
         <div class="product">
-            <img src="..." alt="Ecke Bild" class="corner-image" />
             <h3>Produkt 2</h3>
             <img src="https://github.com/gordon7471/710er-Garage/blob/main/presse2.png?raw=true" alt="Produkt 2 Bild" />
             <p>Preis: 39,99 €</p>
@@ -195,14 +199,15 @@
             </div>
             <button class="review-button" onclick="toggleReviews(this)">Bewertungen anzeigen</button>
             <div class="reviews">
-                <div class="review-title">Bewertungen:</div>
-                <p>Bewertung 1: ⭐⭐⭐⭐</p>
-                <p>Bewertung 2: ⭐⭐⭐⭐⭐</p>
-                <p>Bewertung 3: ⭐⭐⭐⭐</p>
+                <div class="review-title">Bewertung 1: ⭐⭐⭐⭐</div>
+                <p>Gutes Produkt, aber etwas teuer.</p>
+                <div class="review-title">Bewertung 2: ⭐⭐⭐⭐⭐</div>
+                <p>Hat meine Erwartungen übertroffen!</p>
+                <div class="review-title">Bewertung 3: ⭐⭐⭐⭐</div>
+                <p>Sehr empfehlenswert.</p>
             </div>
         </div>
         <div class="product">
-            <img src="..." alt="Ecke Bild" class="corner-image" />
             <h3>Produkt 3</h3>
             <img src="https://via.placeholder.com/300" alt="Produkt 3 Bild" />
             <p>Preis: 49,99 €</p>
@@ -211,10 +216,12 @@
             </div>
             <button class="review-button" onclick="toggleReviews(this)">Bewertungen anzeigen</button>
             <div class="reviews">
-                <div class="review-title">Bewertungen:</div>
-                <p>Bewertung 1: ⭐⭐⭐⭐⭐</p>
-                <p>Bewertung 2: ⭐⭐⭐⭐</p>
-                <p>Bewertung 3: ⭐⭐⭐⭐⭐</p>
+                <div class="review-title">Bewertung 1: ⭐⭐⭐⭐⭐</div>
+                <p>Ein fantastisches Produkt, ich könnte nicht glücklicher sein!</p>
+                <div class="review-title">Bewertung 2: ⭐⭐⭐⭐</div>
+                <p>Das Produkt erfüllt seine Versprechen.</p>
+                <div class="review-title">Bewertung 3: ⭐⭐⭐⭐⭐</div>
+                <p>Würde ich jederzeit wieder kaufen!</p>
             </div>
         </div>
     </div>
@@ -226,7 +233,17 @@
     <script>
         function toggleReviews(button) {
             const reviews = button.nextElementSibling; // Nächstes Geschwister-Element (div.reviews)
-            reviews.style.maxHeight = reviews.style.maxHeight ? null : reviews.scrollHeight + "px"; // Toggle maxHeight
+            // Setzen Sie die max-height nur für die aktuelle Reviews-Box
+            if (reviews.style.maxHeight) {
+                reviews.style.maxHeight = null; // Schließen
+            } else {
+                // Schließen Sie alle anderen Reviews-Boxen
+                const allReviews = document.querySelectorAll('.reviews');
+                allReviews.forEach(review => {
+                    review.style.maxHeight = null; // Schließen aller
+                });
+                reviews.style.maxHeight = reviews.scrollHeight + "px"; // Öffnen der aktuellen Box
+            }
         }
     </script>
 </body>
