@@ -69,6 +69,9 @@
             position: relative;
             z-index: 2;
             margin-top: 70px; /* um den Banner und das Logo zu berücksichtigen */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .product {
@@ -78,6 +81,13 @@
             margin: 10px 0;
             background-color: rgba(34, 34, 34, 0.8);
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            width: 300px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .product:hover {
+            background-color: rgba(34, 34, 34, 1);
         }
 
         .product img {
@@ -88,6 +98,14 @@
 
         .product h3 {
             margin: 10px 0;
+        }
+
+        .details {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
         }
 
         footer {
@@ -108,34 +126,47 @@
         <div class="logo-small">
             <img src="https://github.com/gordon7471/710er-Garage/blob/main/710logo2.png?raw=true" alt="Kleines Logo">
         </div>
-        <h1>710er SHOP!</h1>
+        <h1>Willkommen in unserem Shop!</h1>
         <a href="index.html" class="back-button">Zurück</a>
     </header>
 
     <div class="container">
-        <div class="product">
+        <div class="product" onclick="toggleDetails(this)">
             <h3>Produkt 1</h3>
             <img src="https://via.placeholder.com/300" alt="Produkt 1 Bild" />
-            <p>Beschreibung für Produkt 1.</p>
             <p>Preis: 29,99 €</p>
+            <div class="details">
+                <p>Beschreibung für Produkt 1. Hier sind einige Details über das Produkt.</p>
+            </div>
         </div>
-        <div class="product">
+        <div class="product" onclick="toggleDetails(this)">
             <h3>Produkt 2</h3>
             <img src="https://via.placeholder.com/300" alt="Produkt 2 Bild" />
-            <p>Beschreibung für Produkt 2.</p>
             <p>Preis: 39,99 €</p>
+            <div class="details">
+                <p>Beschreibung für Produkt 2. Hier sind einige Details über das Produkt.</p>
+            </div>
         </div>
-        <div class="product">
+        <div class="product" onclick="toggleDetails(this)">
             <h3>Produkt 3</h3>
             <img src="https://via.placeholder.com/300" alt="Produkt 3 Bild" />
-            <p>Beschreibung für Produkt 3.</p>
             <p>Preis: 49,99 €</p>
+            <div class="details">
+                <p>Beschreibung für Produkt 3. Hier sind einige Details über das Produkt.</p>
+            </div>
         </div>
     </div>
 
     <footer>
         <p>© 2025 Garage 710er</p>
     </footer>
+
+    <script>
+        function toggleDetails(product) {
+            const details = product.querySelector('.details');
+            details.style.display = details.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 </body>
 
 </html>
