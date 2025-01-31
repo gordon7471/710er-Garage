@@ -48,6 +48,22 @@
             width: 80px;
         }
 
+        .back-button {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            padding: 8px 12px;
+            background-color: green;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            z-index: 3;
+        }
+
+        .back-button:hover {
+            background-color: darkgreen;
+        }
+
         .container {
             padding: 20px;
             position: relative;
@@ -74,20 +90,6 @@
             margin: 10px 0;
         }
 
-        a.back-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 15px;
-            background-color: green;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        a.back-button:hover {
-            background-color: darkgreen;
-        }
-
         footer {
             text-align: center;
             padding: 10px;
@@ -106,7 +108,8 @@
         <div class="logo-small">
             <img src="https://github.com/gordon7471/710er-Garage/blob/main/710logo2.png?raw=true" alt="Kleines Logo">
         </div>
-        <h1>Willkommen in unserem Shop!</h1>
+        <h1>710er SHOP!</h1>
+        <a href="index.html" class="back-button">Zurück</a>
     </header>
 
     <div class="container">
@@ -129,8 +132,6 @@
             <p>Preis: 49,99 €</p>
         </div>
     </div>
-
-    <a href="index.html" class="back-button">Zurück zur Hauptseite</a>
 
     <footer>
         <p>© 2025 Garage 710er</p>
