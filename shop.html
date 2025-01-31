@@ -101,14 +101,6 @@
             margin: 10px 0;
         }
 
-        .corner-image {
-            position: absolute;
-            top: 0px; /* Minimaler Abstand zum oberen Rand */
-            right: 0px; /* Minimaler Abstand zum rechten Rand */
-            width: 10px; /* Sehr kleine Breite für das Ecke-Bild */
-            height: auto; /* Erhalt des Seitenverhältnisses */
-        }
-
         .details {
             display: block; /* Immer angezeigt */
             margin-top: 10px;
@@ -187,7 +179,7 @@
                 <div class="review-title">Bewertung 2: ⭐⭐⭐★★</div>
                 <p>Das Produkt ist gut, aber es könnte verbessert werden.</p>
                 <div class="review-title">Bewertung 3: ⭐⭐⭐⭐⭐</div>
-                <p>Ich liebe es! Empfehle jeden, der es nutzt.</p>
+                <p>Ich liebe es! Empfehle jedem, der es nutzt.</p>
             </div>
         </div>
         <div class="product">
@@ -233,18 +225,18 @@
     <script>
         function toggleReviews(button) {
             const reviews = button.nextElementSibling; // Nächstes Geschwister-Element (div.reviews)
-            const allReviews = document.querySelectorAll('.reviews'); // Alle Reviews-Elemente
-            // Schließe alle anderen Reviews-Boxen
-            allReviews.forEach(review => {
-                if (review !== reviews) {
-                    review.style.maxHeight = null; // Schließen aller anderen
-                }
-            });
-
-            // Toggle der aktuellen Reviews-Box
+            
+            // Überprüfen, ob die aktuelle reviews Box bereits geöffnet ist
             if (reviews.style.maxHeight) {
-                reviews.style.maxHeight = null; // Schließen
+                reviews.style.maxHeight = null; // Schließen des aktuellen Reviews
             } else {
+                // Setzen des max-height auf 0 für alle Komponenten
+                const allReviews = document.querySelectorAll('.reviews');
+                allReviews.forEach(review => {
+                    review.style.maxHeight = null; // Schließen aller anderen
+                });
+
+                // Jetzt die max-height der aktuellen reviews Box öffnen
                 reviews.style.maxHeight = reviews.scrollHeight + "px"; // Öffnen der aktuellen Box
             }
         }
