@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Garage 710</title>
+    <title>Unser Shop - Garage 710</title>
     <style>
         body {
             margin: 0;
@@ -28,7 +28,7 @@
             z-index: 1;
         }
 
-        .banner {
+        header {
             background-color: black;
             color: white;
             padding: 10px;
@@ -48,78 +48,98 @@
             width: 80px;
         }
 
-        .logo-large {
+        .back-button {
             position: absolute;
-            top: 20%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            z-index: 2;
+            top: 15px;
+            right: 15px;
+            padding: 8px 12px;
+            background-color: green;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            z-index: 3;
         }
 
-        .logo-large img {
-            width: 500px;
+        .back-button:hover {
+            background-color: darkgreen;
         }
 
         .container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: calc(100vh - 200px);
+            padding: 20px;
             position: relative;
             z-index: 2;
-            margin-top: -50px;
+            margin-top: 70px; /* um den Banner und das Logo zu berücksichtigen */
+            display: flex;
+            flex-wrap: wrap; /* Zulassen, dass die Boxen umgebrochen werden */
+            justify-content: flex-start; /* Boxen linksbündig ausrichten */
         }
 
-        .box {
-            background-color: rgba(34, 34, 34, 0.8);
-            border: 2px solid #aaa;
-            border-radius: 10px;
-            width: 280px;
-            height: 120px;
-            margin: 15px;
-            padding: 10px;
-            position: relative;
-            overflow: hidden;
-            transition: all 0.3s ease;
+        .product {
+            position: relative; /* Macht es einfacher, das Eckbild zu positionieren */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 15px;
+            margin: 10px;
+            background-color: rgba(255, 255, 255, 0.2); /* Hellerer Hintergrund */
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            width: 300px; /* Feste Breite für die Boxen */
+            cursor: pointer;
+            transition: background-color 0.3s;
         }
 
-        .box:hover {
-            background: linear-gradient(to bottom, #f5c97d, #034003);
-            color: white;
-            height: auto;
+        .product:hover {
+            background-color: rgba(255, 255, 255, 0.3); /* Heller bei Hover */
         }
 
-        .box img {
-            position: absolute;
-            top: 0;
-            left: 0;
+        .product img {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.5;
-            z-index: 0;
+            height: auto;
+            border-radius: 5px;
         }
 
-        .box h2,
-        .box p,
-        .box .additional-info {
-            position: relative;
-            z-index: 1;
-            color: white;
-            font-weight: bold;
+        .product h3 {
+            margin: 10px 0;
         }
 
-        .box .additional-info {
-            opacity: 0;
-            transition: opacity 0.3s ease, max-height 0.3s ease;
+        .details {
+            display: block; /* Immer angezeigt */
+            margin-top: 10px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.3); /* Hintergrund für Details */
+            border-radius: 5px;
+        }
+
+        .reviews {
             max-height: 0;
             overflow: hidden;
+            transition: max-height 0.5s ease; /* Sanfter Übergang */
+            background-color: rgba(255, 255, 255, 0.3); /* Hintergrund für Bewertungen */
+            border-radius: 5px;
+            margin-top: 10px;
+            padding: 0 10px; /* Padding beibehalten, damit der Text nicht eng ist */
+        }
+
+        .review-button {
+            background-color: blue;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
             margin-top: 10px;
         }
 
-        .box:hover .additional-info {
-            opacity: 1;
-            max-height: 150px;
+        .review-button:hover {
+            background-color: darkblue;
+        }
+
+        .review-title {
+            font-weight: bold;
+            margin: 10px 0 5px 0; /* Abstand nach oben */
+        }
+
+        .review {
+            margin-bottom: 10px;
         }
 
         footer {
@@ -135,39 +155,92 @@
 
 <body>
     <div class="overlay"></div>
-    <div class="banner">
-        <h1>Willkommen bei der Garage 710er</h1>
-    </div>
 
-    <div class="logo-small">
-        <img src="https://github.com/gordon7471/710er-Garage/blob/main/710logo2.png?raw=true" alt="Kleines Logo">
-    </div>
-
-    <div class="logo-large">
-        <img src="https://github.com/gordon7471/710er-Garage/blob/main/710logo2.png?raw=true" alt="Großes Logo">
-    </div>
+    <header>
+        <div class="logo-small">
+            <img src="https://github.com/gordon7471/710er-Garage/blob/main/710logo2.png?raw=true" alt="Kleines Logo">
+        </div>
+        <h1>Willkommen in unserem Shop!</h1>
+        <a href="index.html" class="back-button">Zurück</a>
+    </header>
 
     <div class="container">
-        <div class="box">
-            <h2>Unsere Fahrzeuge</h2>
-            <img src="https://github.com/gordon7471/710er-Garage/blob/main/Design%20ohne%20Titel.png?raw=true" alt="Bild 1" />
-            <div class="additional-info">Von Tuning bis Restauration – wir kümmern uns um dein Fahrzeug mit Leidenschaft.</div>
+        <div class="product">
+            <h3>Produkt 1</h3>
+            <img src="https://github.com/gordon7471/710er-Garage/blob/main/presse2.png?raw=true" alt="Produkt 1 Bild" />
+            <p>Preis: 29,99 €</p>
+            <div class="details">
+                <p>Beschreibung für Produkt 1. Hier sind einige Details über das Produkt.</p>
+            </div>
+            <button class="review-button" onclick="toggleReviews(this)">Bewertungen anzeigen</button>
+            <div class="reviews">
+                <div class="review-title">Bewertung 1: ⭐⭐⭐⭐⭐</div>
+                <p>Überragendes Produkt! Ich bin sehr zufrieden.</p>
+                <div class="review-title">Bewertung 2: ⭐⭐⭐★★</div>
+                <p>Das Produkt ist gut, aber es könnte verbessert werden.</p>
+                <div class="review-title">Bewertung 3: ⭐⭐⭐⭐⭐</div>
+                <p>Ich liebe es! Empfehle jedem, der es nutzt.</p>
+            </div>
         </div>
-        <div class="box">
-            <h2>Unser Shop</h2>
-            <img src="https://github.com/gordon7471/710er-Garage/blob/main/aixam.png?raw=true" alt="Bild 2" />
-            <div class="additional-info">Hochwertige Teile und Zubehör für dein Fahrzeug. Finde alles, was du brauchst!</div>
+        <div class="product">
+            <h3>Produkt 2</h3>
+            <img src="https://github.com/gordon7471/710er-Garage/blob/main/presse2.png?raw=true" alt="Produkt 2 Bild" />
+            <p>Preis: 39,99 €</p>
+            <div class="details">
+                <p>Beschreibung für Produkt 2. Hier sind einige Details über das Produkt.</p>
+            </div>
+            <button class="review-button" onclick="toggleReviews(this)">Bewertungen anzeigen</button>
+            <div class="reviews">
+                <div class="review-title">Bewertung 1: ⭐⭐⭐⭐</div>
+                <p>Gutes Produkt, aber etwas teuer.</p>
+                <div class="review-title">Bewertung 2: ⭐⭐⭐⭐⭐</div>
+                <p>Hat meine Erwartungen übertroffen!</p>
+                <div class="review-title">Bewertung 3: ⭐⭐⭐⭐</div>
+                <p>Sehr empfehlenswert.</p>
+            </div>
         </div>
-        <div class="box">
-            <h2>Unsere Dienstleistungen</h2>
-            <img src="https://github.com/gordon7471/710er-Garage/blob/main/simson.png?raw=true" alt="Bild 3" />
-            <div class="additional-info">Ob Reparatur, Lackierung oder Sonderumbauten – wir setzen deine Wünsche um.</div>
+        <div class="product">
+            <h3>Produkt 3</h3>
+            <img src="https://via.placeholder.com/300" alt="Produkt 3 Bild" />
+            <p>Preis: 49,99 €</p>
+            <div class="details">
+                <p>Beschreibung für Produkt 3. Hier sind einige Details über das Produkt.</p>
+            </div>
+            <button class="review-button" onclick="toggleReviews(this)">Bewertungen anzeigen</button>
+            <div class="reviews">
+                <div class="review-title">Bewertung 1: ⭐⭐⭐⭐⭐</div>
+                <p>Ein fantastisches Produkt, ich könnte nicht glücklicher sein!</p>
+                <div class="review-title">Bewertung 2: ⭐⭐⭐⭐</div>
+                <p>Das Produkt erfüllt seine Versprechen.</p>
+                <div class="review-title">Bewertung 3: ⭐⭐⭐⭐⭐</div>
+                <p>Würde ich jederzeit wieder kaufen!</p>
+            </div>
         </div>
     </div>
 
     <footer>
         <p>© 2025 Garage 710er</p>
     </footer>
+
+    <script>
+        function toggleReviews(button) {
+            const reviews = button.nextElementSibling; // Nächstes Geschwister-Element (div.reviews)
+            
+            // Überprüfen, ob die aktuelle reviews Box bereits geöffnet ist
+            if (reviews.style.maxHeight) {
+                reviews.style.maxHeight = null; // Schließen des aktuellen Reviews
+            } else {
+                // Setzen des max-height auf 0 für alle Komponenten
+                const allReviews = document.querySelectorAll('.reviews');
+                allReviews.forEach(review => {
+                    review.style.maxHeight = null; // Schließen aller anderen
+                });
+
+                // Jetzt die max-height der aktuellen reviews Box öffnen
+                reviews.style.maxHeight = reviews.scrollHeight + "px"; // Öffnen der aktuellen Box
+            }
+        }
+    </script>
 </body>
 
 </html>
