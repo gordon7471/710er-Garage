@@ -86,6 +86,7 @@
             background: linear-gradient(to bottom, #f5c97d, #034003);
             color: white;
             height: 200px;
+            transform: translateY(-10px);
         }
 
         .box img {
@@ -116,6 +117,18 @@
 
         .box:hover .additional-info {
             opacity: 1;
+        }
+
+        .shop-link {
+            position: absolute;
+            right: 10px;
+            bottom: 10px;
+            color: white;
+            text-decoration: none;
+        }
+
+        .shop-link:hover {
+            color: #f5c97d;
         }
 
         footer {
@@ -152,7 +165,10 @@
         <div class="box">
             <h2>Unser Shop</h2>
             <img src="https://github.com/gordon7471/710er-Garage/blob/main/aixam.png?raw=true" alt="Bild 2" />
-            <div class="additional-info">Hochwertige Teile und Zubehör für dein Fahrzeug. Finde alles, was du brauchst!</div>
+            <div class="additional-info">
+                Hochwertige Teile und Zubehör für dein Fahrzeug. Finde alles, was du brauchst!
+                <a href="#" class="shop-link">Zu unserem Shop gehen</a>
+            </div>
         </div>
         <div class="box">
             <h2>Unsere Dienstleistungen</h2>
@@ -162,8 +178,35 @@
     </div>
 
     <footer>
-        <p>© 2025 Garage 710er</p>
+        <p>2025 Garage 710er</p>
     </footer>
+
+    <script>
+        function toggleInfo(box) {
+            const additionalInfo = box.querySelector('.additional-info');
+            const shopLink = box.querySelector('.shop-link');
+            const isHovered = box.classList.contains('hovered');
+
+            if (!isHovered) {
+                box.classList.add('hovered');
+                box.addEventListener('mouseout', () => {
+                    box.classList.remove('hovered');
+                });
+            }
+
+            if (box.classList.contains('hovered')) {
+                additionalInfo.style.opacity = 1;
+                shopLink.style.opacity = 1;
+            } else {
+                additionalInfo.style.opacity = 0;
+                shopLink.style.opacity = 0;
+            }
+
+            setTimeout(() => {
+                box.classList.remove('hovered');
+            }, 500);
+        }
+    </script>
 </body>
 
 </html>
