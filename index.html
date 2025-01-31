@@ -73,19 +73,19 @@
             background-color: rgba(34, 34, 34, 0.8);
             border: 2px solid #aaa;
             border-radius: 10px;
-            width: 250px;
-            height: 100px;
+            width: 280px;
+            height: 120px;
             margin: 15px;
             padding: 10px;
             position: relative;
             overflow: hidden;
-            transition: height 0.3s ease;
+            transition: all 0.3s ease;
         }
 
-        .box:hover,
-        .box.expanded {
+        .box:hover {
             background: linear-gradient(to bottom, #f5c97d, #034003);
-            color: #f2f2f2; /* Dunklerer Farbton für den Text beim Hover */
+            color: white;
+            height: 200px;
         }
 
         .box img {
@@ -104,18 +104,18 @@
         .box .additional-info {
             position: relative;
             z-index: 1;
-            color: #f2f2f2; /* Dunklerer Farbton für besseren Kontrast */
-        }
-
-        .box .additional-info {
-            display: none;
-            margin-top: 10px;
-            z-index: 1;
+            color: white;
             font-weight: bold;
         }
 
-        .box.expanded .additional-info {
-            display: block;
+        .box .additional-info {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            margin-top: 10px;
+        }
+
+        .box:hover .additional-info {
+            opacity: 1;
         }
 
         footer {
@@ -144,17 +144,17 @@
     </div>
 
     <div class="container">
-        <div class="box" onclick="toggleInfo(this)">
+        <div class="box">
             <h2>Unsere Fahrzeuge</h2>
             <img src="https://github.com/gordon7471/710er-Garage/blob/main/Design%20ohne%20Titel.png?raw=true" alt="Bild 1" />
             <div class="additional-info">Von Tuning bis Restauration – wir kümmern uns um dein Fahrzeug mit Leidenschaft.</div>
         </div>
-        <div class="box" onclick="toggleInfo(this)">
+        <div class="box">
             <h2>Unser Shop</h2>
             <img src="https://github.com/gordon7471/710er-Garage/blob/main/aixam.png?raw=true" alt="Bild 2" />
             <div class="additional-info">Hochwertige Teile und Zubehör für dein Fahrzeug. Finde alles, was du brauchst!</div>
         </div>
-        <div class="box" onclick="toggleInfo(this)">
+        <div class="box">
             <h2>Unsere Dienstleistungen</h2>
             <img src="https://github.com/gordon7471/710er-Garage/blob/main/simson.png?raw=true" alt="Bild 3" />
             <div class="additional-info">Ob Reparatur, Lackierung oder Sonderumbauten – wir setzen deine Wünsche um.</div>
@@ -164,23 +164,6 @@
     <footer>
         <p>© 2025 Garage 710er</p>
     </footer>
-
-    <script>
-        function toggleInfo(box) {
-            const additionalInfo = box.querySelector('.additional-info');
-            const isVisible = additionalInfo.style.display === 'block';
-
-            if (isVisible) {
-                additionalInfo.style.display = 'none';
-                box.style.height = '100px';
-                box.classList.remove('expanded');
-            } else {
-                additionalInfo.style.display = 'block';
-                box.style.height = '200px';
-                box.classList.add('expanded');
-            }
-        }
-    </script>
 </body>
 
 </html>
