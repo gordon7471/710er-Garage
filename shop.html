@@ -9,19 +9,50 @@
         body {
             margin: 0;
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            color: #333;
+            background-image: url('https://github.com/gordon7471/710er-Garage/blob/main/710logo.jpg?raw=true');
+            background-size: cover;
+            background-position: top center;
+            color: white;
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 1;
         }
 
         header {
-            background-color: #034003;
+            background-color: black;
             color: white;
             padding: 10px;
             text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-small {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 3;
+        }
+
+        .logo-small img {
+            width: 80px;
         }
 
         .container {
             padding: 20px;
+            position: relative;
+            z-index: 2;
+            margin-top: 70px; /* um den Banner und das Logo zu berücksichtigen */
         }
 
         .product {
@@ -29,8 +60,8 @@
             border-radius: 5px;
             padding: 15px;
             margin: 10px 0;
-            background-color: white;
-            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            background-color: rgba(34, 34, 34, 0.8);
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
         }
 
         .product img {
@@ -56,11 +87,25 @@
         a.back-button:hover {
             background-color: darkgreen;
         }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            z-index: 2;
+        }
     </style>
 </head>
 
 <body>
+    <div class="overlay"></div>
+
     <header>
+        <div class="logo-small">
+            <img src="https://github.com/gordon7471/710er-Garage/blob/main/710logo2.png?raw=true" alt="Kleines Logo">
+        </div>
         <h1>Willkommen in unserem Shop!</h1>
     </header>
 
@@ -86,6 +131,10 @@
     </div>
 
     <a href="index.html" class="back-button">Zurück zur Hauptseite</a>
+
+    <footer>
+        <p>© 2025 Garage 710er</p>
+    </footer>
 </body>
 
 </html>
