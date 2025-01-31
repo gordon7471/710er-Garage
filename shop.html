@@ -233,15 +233,18 @@
     <script>
         function toggleReviews(button) {
             const reviews = button.nextElementSibling; // Nächstes Geschwister-Element (div.reviews)
-            // Setzen Sie die max-height nur für die aktuelle Reviews-Box
+            const allReviews = document.querySelectorAll('.reviews'); // Alle Reviews-Elemente
+            // Schließe alle anderen Reviews-Boxen
+            allReviews.forEach(review => {
+                if (review !== reviews) {
+                    review.style.maxHeight = null; // Schließen aller anderen
+                }
+            });
+
+            // Toggle der aktuellen Reviews-Box
             if (reviews.style.maxHeight) {
                 reviews.style.maxHeight = null; // Schließen
             } else {
-                // Schließen Sie alle anderen Reviews-Boxen
-                const allReviews = document.querySelectorAll('.reviews');
-                allReviews.forEach(review => {
-                    review.style.maxHeight = null; // Schließen aller
-                });
                 reviews.style.maxHeight = reviews.scrollHeight + "px"; // Öffnen der aktuellen Box
             }
         }
