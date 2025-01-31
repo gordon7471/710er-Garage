@@ -14,8 +14,8 @@
             background-position: top center;
             color: white;
             position: relative;
-            height: 100vh;
-            overflow: hidden;
+            height: auto; /* Ändere die Höhe auf auto */
+            overflow-y: auto; /* Ermöglicht vertikales Scrollen */
         }
 
         .overlay {
@@ -72,15 +72,16 @@
             display: flex;
             flex-wrap: wrap; /* Zulassen, dass die Boxen umgebrochen werden */
             justify-content: flex-start; /* Boxen linksbündig ausrichten */
+            max-height: calc(100vh - 100px); /* Höhe des Containers anpassen, um Scrollen zu ermöglichen */
+            overflow-y: auto; /* Ermöglicht das Scrollen im Container */
         }
 
         .product {
-            position: relative; /* Macht es einfacher, das Eckbild zu positionieren */
             border: 1px solid #ccc;
             border-radius: 5px;
             padding: 15px;
             margin: 10px;
-            background-color: rgba(255, 255, 255, 0.2); /* Hellerer Hintergrund */
+            background-color: rgba(255, 255, 255, 0.2);
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
             width: 300px; /* Feste Breite für die Boxen */
             cursor: pointer;
@@ -105,18 +106,18 @@
             display: block; /* Immer angezeigt */
             margin-top: 10px;
             padding: 10px;
-            background-color: rgba(255, 255, 255, 0.3); /* Hintergrund für Details */
-            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 5px; 
         }
 
         .reviews {
             max-height: 0;
             overflow: hidden;
             transition: max-height 0.5s ease; /* Sanfter Übergang */
-            background-color: rgba(255, 255, 255, 0.3); /* Hintergrund für Bewertungen */
+            background-color: rgba(255, 255, 255, 0.3);
             border-radius: 5px;
             margin-top: 10px;
-            padding: 0 10px; /* Padding beibehalten, damit der Text nicht eng ist */
+            padding: 0 10px;
         }
 
         .review-button {
